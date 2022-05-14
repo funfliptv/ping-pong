@@ -1,0 +1,36 @@
+{
+  "name": "ecomm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "bin": {
+    "ecomm": "post.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node-fetch": "^3.2.4",
+    "nodemon": "^2.0.16",
+    "playwright-core": "1.16.3",
+    "playwright-extra": "4.2.1-next.616",
+    "playwright-firefox": "1.16.3"
+  },
+  "type": "module",
+   "imports": {
+        "#a": "./a.js"
+    },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
