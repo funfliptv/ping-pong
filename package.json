@@ -22,9 +22,9 @@
     "playwright-firefox": "1.16.3"
   },
   "type": "module",
-   "imports": {
-        "#a": "./a.js"
-    },
+  "imports": {
+    "#a": "./a.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
