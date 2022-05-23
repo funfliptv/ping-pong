@@ -17,6 +17,10 @@ async function getProductInfo(url, firefox) {
   const info = await page.evaluate(() => {
     const productType = [...document.querySelectorAll('.Chipsstyled__ChipsWrapper-sc-id03eo-0 span')].length > 1 ? 'variable' : 'simple';
     const images = [...document.querySelectorAll('.Slider__SliderList-sc-xkrsbz-1 img')].filter((i) => i.src.includes('http')).map((i) => ({ src: i.src.replace('64', '512') }));
+
+    const productId = images[0].src.split('images.meesho.com/images/products/')[1].split('/')[0];
+
+    const useImages = images.filter(({ src }) => src.includes(productId));
     const data = {
       regular_price: document.querySelector('.Text__StyledText-sc-oo0kvp-0.bWSOET').innerText.replace('₹', ''),
       type: productType,
@@ -26,8 +30,8 @@ async function getProductInfo(url, firefox) {
       description: document.querySelector('.ProductDescription__DetailsCardStyled-sc-1tmqkzf-0').innerHTML,
 
       categories: [{ id: 1 }],
-      sku: `78${images[0].src.split('images.meesho.com/images/products/')[1].split('/')[0]}79`,
-      images,
+      sku: `78${productId}79`,
+      images: useImages,
       attributes: [...(new Set([...document.querySelectorAll('.Chipsstyled__ChipsWrapper-sc-id03eo-0 span')].map((e) => (e.innerText))))].map((txt) => ({ id: 5, options: txt })),
 
       meta_data: [
