@@ -10,8 +10,8 @@ const currentPage = 1;
   console.log('Total Products on page:', producstList.length);
   for (const p of producstList) {
     const data = await scrapper.getProductInfo(p, ff);
+    console.log(data);
   }
 
-  console.log(data);
   if (curPage <= lastPage) { recursiveScrape(++curPage); }
 }(currentPage));
